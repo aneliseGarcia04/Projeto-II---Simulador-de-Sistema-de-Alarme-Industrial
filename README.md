@@ -38,21 +38,6 @@ O sistema recebe entradas de três sensores binários:
 A saída $S$ representa o estado do alarme (`0` = Desligado, `1` = Ligado)[cite: 2].  
 O alarme será acionado **exclusivamente** quando o sistema estiver **ligado ($C = 1$)** e houver ao menos uma condição de risco presente: **porta aberta ($A = 1$) OU movimento detectado ($B = 1$)**[cite: 2].
 
-$$\text{Condição de Disparo: } S = C \cdot (A + B) = (A \cdot C) + (B \cdot C)$$
-
-### 3. Tabela Verdade Completa
-
-| Entrada A (Porta) | Entrada B (Movimento) | Entrada C (Chave) | Saída S (Alarme) | Situação |
-| :---: | :---: | :---: | :---: | :--- |
-| 0 | 0 | 0 | **0** | Sistema Desligado |
-| 0 | 0 | 1 | **0** | Sistema Ligado - Repouso |
-| 0 | 1 | 0 | **0** | Movimento com Sistema Desligado |
-| 0 | 1 | 1 | **1** | 🚨 **Alarme: Movimento Detectado** |
-| 1 | 0 | 0 | **0** | Porta Aberta com Sistema Desligado |
-| 1 | 0 | 1 | **1** | 🚨 **Alarme: Porta Aberta** |
-| 1 | 1 | 0 | **0** | Risco com Sistema Desligado |
-| 1 | 1 | 1 | **1** | 🚨 **Alarme: Porta Aberta e Movimento** |
-
 ---
 
 ## 🛠️ Implementações
